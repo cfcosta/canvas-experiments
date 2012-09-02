@@ -7,6 +7,7 @@ class ImageFile
     @zoomx = 1
     @zoomy = 1
     @image = new image @file
+    @setMidHandle()
 
   getPosition: ->
     new Point(@x, @y)
@@ -14,6 +15,13 @@ class ImageFile
   setPosition: (point) ->
     @x = point.x
     @y = point.y
+
+  setMidHandle: ->
+    @image.setmidhandle()
+
+  setHandle: (point) ->
+    @image.sethandle(point.x, point.y)
+    @handle = point
 
   draw: (canvas) ->
     @image.draw(canvas, @x, @y, @alpha, @rotation, @zoomx, @zoomy)
