@@ -1,6 +1,9 @@
 class window.Game
   constructor: (width, height, selector) ->
     @canvas = new canvas(width, height, selector)
+    @player = new Player
+    @player.play("/music/01.mod")
+
     requestAnimFrame(@step)
 
   step: =>
