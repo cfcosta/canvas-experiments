@@ -1,13 +1,10 @@
 class window.Game
   constructor: (width, height, selector) ->
     @canvas = new canvas(width, height, selector)
-    @player = new Player
-    @player.play("/music/01.mod")
-    @eventHandler = new EventHandler
+    @setupEvents()
 
-    $('#canvas').on "click", (event) =>
-      point = new Point event.layerX,event.layerY
-      @eventHandler.tap point
+    @state = new MenuState
+    @changeState(@state)
 
     requestAnimFrame(@step)
 
@@ -19,6 +16,19 @@ class window.Game
     quad.draw @canvas
 
     requestAnimFrame @step
+
+  setupEvents: =>
+    @eventHandler = new EventHandler
+
+    $('#canvas').on "click", (event) =>
+      point = new Point event.layerX,event.layerY
+      @eventHandler.tap point
+
+  changeState: (state) ->
+    oldState = @state
+    @eventHandler.removeState(oldState)
+    @state = state
+    @eventHandler.registerState(@state)
 
 $(document).ready ->
   window.game = new Game 640, 480, "canvas"
