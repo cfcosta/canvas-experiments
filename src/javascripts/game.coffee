@@ -22,6 +22,10 @@ class window.Game
 
     $('#canvas').on "click", (event) =>
       point = new Point event.layerX,event.layerY
+      @eventHandler.click point
+
+    $('#canvas').on "tap", (event) =>
+      point = new Point event.layerX,event.layerY
       @eventHandler.tap point
 
   changeState: (state) ->

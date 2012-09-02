@@ -5,6 +5,10 @@ class window.EventHandler
     _.each @handlers, (handler) ->
       handler.tap(point) if handler.tap?
 
+  # Click should behave the same way as tap
+  click: (point) ->
+    @tap(point)
+
   registerState: (state) ->
     @handlers.push state
 
