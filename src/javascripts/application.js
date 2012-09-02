@@ -1,2 +1,2 @@
 //= require_tree ./vendor
-//= require game
+//= require_directory .
