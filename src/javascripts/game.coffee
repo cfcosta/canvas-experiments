@@ -35,5 +35,5 @@ class window.Game
     @eventHandler.registerState(@state)
 
 $(document).ready ->
-  window.game = new Game 640, 480, "canvas"
+  window.game = new Game 320, 480, "canvas"
 
