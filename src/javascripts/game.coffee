@@ -3,11 +3,13 @@ class window.Game
     @canvas = new canvas(width, height, selector)
     @canvas.fill "#000000"
 
-    startPoint = new Point 0, 0
-    finishPoint = new Point 640, 480
+    point1 = new Point 30, 30
+    point2 = new Point 320, 240
+    point3 = new Point 480, 480
 
-    line = new Line startPoint, finishPoint, 1, "#FF0000"
-    line.draw @canvas
+    triangle = new Triangle point1, point2, point3, "#FF0000"
+    triangle.draw(@canvas)
+
 
 $(document).ready ->
   new Game 640, 480, "canvas"
