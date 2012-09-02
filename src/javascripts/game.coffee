@@ -11,9 +11,9 @@ class window.Game
 
     point = new Point 30, 30
     quad = new Quad point, 50, 50, "#FF0000"
-    quad.draw(@canvas)
+    quad.draw @canvas
 
-    requestAnimFrame(@step)
+    requestAnimFrame @step
 
 $(document).ready ->
   window.game = new Game 640, 480, "canvas"
