@@ -3,6 +3,11 @@ class window.Game
     @canvas = new canvas(width, height, selector)
     @player = new Player
     @player.play("/music/01.mod")
+    @eventHandler = new EventHandler
+
+    $('#canvas').on "click", (event) =>
+      point = new Point event.layerX,event.layerY
+      @eventHandler.tap point
 
     requestAnimFrame(@step)
 
