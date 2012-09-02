@@ -1,4 +1,4 @@
-class Game
+class window.Game
   constructor: (width, height, selector) ->
     @canvas = new canvas(width, height, selector)
     @canvas.fill "#000000"
