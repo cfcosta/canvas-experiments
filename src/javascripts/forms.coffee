@@ -13,3 +13,10 @@ class window.Triangle
   draw: (canvas) ->
     canvas.triangle(@point1.x, @point1.y, @point2.x, @point2.y,
       @point3.x, @point3.y, @color)
+
+class window.Quad
+  constructor: (@point1, @width, @height, @color) ->
+
+  draw: (canvas) ->
+    canvas.quad(@point1.x, @point1.y, @width, @height, @color)
+
