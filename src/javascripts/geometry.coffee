@@ -5,7 +5,15 @@ class window.Line
   constructor: (@start, @finish, @width, @color) ->
 
   draw: (canvas) ->
-    canvas.line(@start.x, @start.y, @finish.x, @finish.y, @width, @color)
+    oldStrokeStyle = canvas.context.strokeStyle
+    canvas.context.strokeStyle = @color
+    canvas.context.lineWidth = @width
+    canvas.context.beginPath()
+    canvas.context.moveTo @start.x, @start.y
+    canvas.context.lineTo @finish.x, @finish.y
+    canvas.context.stroke()
+    canvas.context.closePath()
+    canvas.context.strokeStyle = oldStrokeStyle
 
 class window.Triangle
   constructor: (@point1, @point2, @point3, @color) ->
