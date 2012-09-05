@@ -21,3 +21,14 @@ class window.Canvas
   step: (fun) ->
     window.webkitRequestAnimationFrame fun
 
+  line: (x1, y1, x2, y2, width, color) ->
+    oldStrokeStyle = @context.strokeStyle
+    @context.strokeStyle = color
+    @context.lineWidth = width
+    @context.beginPath()
+    @context.moveTo x1, y1
+    @context.lineTo x2, y2
+    @context.stroke()
+    @context.closePath()
+    @context.strokeStyle = oldStrokeStyle
+
