@@ -1,21 +1,24 @@
 class window.Game
   constructor: (width, height, selector) ->
-    @canvas = new canvas(width, height, selector)
+    @canvas = new Canvas(width, height, selector)
     @setupEvents()
 
     @state = new MenuState
     @changeState(@state)
 
-    requestAnimFrame(@step)
+    map = new MapLoader(MenuMap)
+    map.load()
+
+    @canvas.step(@step)
 
   step: =>
     @canvas.fill "#000000"
 
-    point = new Point 30, 30
-    quad = new Quad point, 50, 50, "#FF0000"
-    quad.draw @canvas
+    #point = new Point 30, 30
+    #quad = new Quad point, 50, 50, "#FF0000"
+    #quad.draw @canvas
 
-    requestAnimFrame @step
+    @canvas.step @step
 
   setupEvents: =>
     @eventHandler = new EventHandler
