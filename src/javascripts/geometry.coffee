@@ -29,5 +29,12 @@ class window.Quad
   constructor: (@point1, @width, @height, @color) ->
 
   draw: (canvas) ->
-    canvas.quad(@point1.x, @point1.y, @width, @height, @color)
+    canvas.context.fillStyle = @color
+    canvas.context.beginPath()
+    canvas.context.moveTo(@point1.x, @point1.y)
+    canvas.context.lineTo(@point1.x + @width, @point1.y)
+    canvas.context.lineTo(@point1.x + @width, @point1.y + @height)
+    canvas.context.lineTo(@point1.x, @point1.y + @height)
+    canvas.context.closePath()
+    canvas.context.fill()
 
