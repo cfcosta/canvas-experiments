@@ -9,7 +9,7 @@ class window.Game
     map = new MapLoader(MenuMap)
     map.load()
 
-    @canvas.step(@step)
+    @canvas.step @step
 
   step: =>
     @canvas.fill "#000000"
