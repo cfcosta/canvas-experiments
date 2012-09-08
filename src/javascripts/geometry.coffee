@@ -26,15 +26,9 @@ class window.Triangle
     canvas.context.fill()
 
 class window.Quad
-  constructor: (@point1, @width, @height, @color) ->
+  constructor: (@start, @width, @height, @color) ->
 
   draw: (canvas) ->
     canvas.context.fillStyle = @color
-    canvas.context.beginPath()
-    canvas.context.moveTo(@point1.x, @point1.y)
-    canvas.context.lineTo(@point1.x + @width, @point1.y)
-    canvas.context.lineTo(@point1.x + @width, @point1.y + @height)
-    canvas.context.lineTo(@point1.x, @point1.y + @height)
-    canvas.context.closePath()
-    canvas.context.fill()
+    canvas.context.fillRect(@start.x, @start.y, @width, @height)
 
